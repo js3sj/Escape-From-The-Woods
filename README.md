@@ -4,25 +4,39 @@
 ## Map file examples:
 ## Map1.txt
 
-### 11111
-### 1 X 1
-### 1 1 1
-### 1   1
-### 111 1
+11111
+
+1&nbsp;&nbsp;X&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;1&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
+
+111&nbsp;&nbsp;1
 
 ## Map2.txt
 
-### 11111111111
-### 1     1   1
-### 1 1 1 111 1
-### 1 1 1     1
-### 1 1 1 11111
-### 1   1X    1
-### 1 1111111 1
-### 1   1     1
-### 111 1 111 1
-### 1   1 1   1
-### 1 111 11111
+11111111111
+
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;111&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;11111
+
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;1111111&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
+
+111&nbsp;&nbsp;1&nbsp;&nbsp;111&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
+
+1&nbsp;&nbsp;111&nbsp;&nbsp;11111
 
 ## Game rules
 ### • Find the fastest way out from the forest and return steps count as an answer (output)
