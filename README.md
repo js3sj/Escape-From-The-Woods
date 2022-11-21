@@ -4,38 +4,22 @@
 ## Map file examples:
 ## Map1.txt
 
-11111
-
-1&nbsp;&nbsp;X&nbsp;&nbsp;1
-
-1&nbsp;&nbsp;1&nbsp;&nbsp;1
-
-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
-
-111&nbsp;&nbsp;1
-
-## Map2.txt
-
-11111111111
-
-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
-
-1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;111&nbsp;&nbsp;1
-
-1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
-
-1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;11111
-
-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
-
-1&nbsp;&nbsp;1111111&nbsp;&nbsp;1
-
-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
-
-111&nbsp;&nbsp;1&nbsp;&nbsp;111&nbsp;&nbsp;1
-
-1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
-
+11111<br>
+1&nbsp;&nbsp;X&nbsp;&nbsp;1<br>
+1&nbsp;&nbsp;1&nbsp;&nbsp;1<br>
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
+111&nbsp;&nbsp;1<br>
+## Map2.txt<br>
+11111111111<br>
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
+1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;111&nbsp;&nbsp;1<br>
+1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
+1&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;11111<br>
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
+1&nbsp;&nbsp;1111111&nbsp;&nbsp;1<br>
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
+111&nbsp;&nbsp;1&nbsp;&nbsp;111&nbsp;&nbsp;1<br>
+1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
 1&nbsp;&nbsp;111&nbsp;&nbsp;11111
 
 ## Game rules
