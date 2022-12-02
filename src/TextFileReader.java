@@ -5,7 +5,7 @@ import java.util.List;
 public class TextFileReader {
 
     public static boolean readFromFile(GameDto dto) {
-        int firstStringLength;
+        int firstLineLength;
         List<String> lines;
 
         try {
@@ -15,14 +15,14 @@ public class TextFileReader {
         }
 
         if ((lines != null) && (lines.size() > 0))
-            firstStringLength = lines.get(0).length();
+            firstLineLength = lines.get(0).length();
         else
             return false;
 
-        if(!isFirstLineLengthCorrect(dto, firstStringLength))
+        if(!isFirstLineLengthCorrect(dto, firstLineLength))
             return false;
 
-        checkLinesForMissingSymbols(dto, firstStringLength, lines);
+        checkLinesForMissingSymbols(dto, firstLineLength, lines);
         createArrayFromAList(dto, lines);
 
         if (!isMapHeightCorrect(dto, lines.size()))
@@ -31,9 +31,9 @@ public class TextFileReader {
         return (isStartPositionFound(dto));
     }
 
-    private static void checkLinesForMissingSymbols(GameDto dto, int firstStringLength, List<String> lines) {
+    private static void checkLinesForMissingSymbols(GameDto dto, int lineLength, List<String> lines) {
         lines.replaceAll(x -> {
-            return (x.length() < firstStringLength) ? "" + appendLineWithMissingSymbols(dto, x, x.length()) : x;
+            return (x.length() < lineLength) ? "" + appendLineWithMissingSymbols(dto, x) : x;
         });
     }
 
@@ -49,8 +49,8 @@ public class TextFileReader {
         return true;
     }
 
-    private static String appendLineWithMissingSymbols(GameDto dto, String lineFromFile, int lineLength) {
-        return lineFromFile + (""+dto.getEMPTY_SPACE_SYMBOL()).repeat(dto.getAxisXSize()-lineLength);
+    private static String appendLineWithMissingSymbols(GameDto dto, String line) {
+        return line + (""+dto.getEMPTY_SPACE_SYMBOL()).repeat(dto.getAxisXSize()-line.length());
     }
 
     private static void createArrayFromAList(GameDto dto, List<String> listOfLines) {
