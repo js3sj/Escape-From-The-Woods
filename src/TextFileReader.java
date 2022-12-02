@@ -1,67 +1,70 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.List;
 
 public class TextFileReader {
 
     public static boolean readFromFile(GameDto dto) {
+        int firstStringLength;
+        List<String> lines;
+
         try {
-            File fileToReadObj = new File(dto.getREAD_FROM_FILE_NAME());
-            Scanner myReader = new Scanner(fileToReadObj);
-            int y = 0;
-
-            while (myReader.hasNextLine()) {
-                String lineFromFile = myReader.nextLine();
-                int lineLength = lineFromFile.length();
-
-                if (!isFirstLineLengthCorrect(dto, y, lineLength))
-                    return false;
-                if (lineLength < dto.getAxisXSize()){
-                    lineFromFile = appendLineWithMissingSymbols(dto, lineFromFile, lineLength);
-                }
-                processLineFromFile(dto, lineFromFile, y);
-                y++;
-            }
-
-            if (!isMapHeightCorrect(dto, y))
-                return false;
-
-            return (isStartPositionFound(dto));
-
-        } catch (FileNotFoundException e){
-            e.printStackTrace();
-            return false;
+            lines = Files.readAllLines(Path.of(dto.getREAD_FROM_FILE_NAME()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
+        if ((lines != null) && (lines.size() > 0))
+            firstStringLength = lines.get(0).length();
+        else
+            return false;
+
+        if(!isFirstLineLengthCorrect(dto, firstStringLength))
+            return false;
+
+        checkLinesForMissingSymbols(dto, firstStringLength, lines);
+        createArrayFromAList(dto, lines);
+
+        if (!isMapHeightCorrect(dto, lines.size()))
+            return false;
+
+        return (isStartPositionFound(dto));
     }
 
-    private static boolean isFirstLineLengthCorrect(GameDto dto, int y, int lineLength) {
-        if (y == 0) {
-            if ((lineLength < dto.getMIN_AXIS_X_SIZE()) || (lineLength > dto.getMAX_AXIS_X_SIZE())) {
-                TextFileWriter.writeToFile(dto.getWRITE_TO_FILE_NAME(),
-                        Integer.toString(dto.getERROR_FOR_AXIS_X_OUT_OF_BOUNDS()));
-                return false;
-            } else {
-                dto.setAxisXSize(lineLength);
-            }
+    private static void checkLinesForMissingSymbols(GameDto dto, int firstStringLength, List<String> lines) {
+        lines.replaceAll(x -> {
+            return (x.length() < firstStringLength) ? "" + appendLineWithMissingSymbols(dto, x, x.length()) : x;
+        });
+    }
+
+    private static boolean isFirstLineLengthCorrect(GameDto dto, int lineLength) {
+        if ((lineLength < dto.getMIN_AXIS_X_SIZE()) || (lineLength > dto.getMAX_AXIS_X_SIZE())) {
+            TextFileWriter.writeToFile(dto.getWRITE_TO_FILE_NAME(),
+                    Integer.toString(dto.getERROR_FOR_AXIS_X_OUT_OF_BOUNDS()));
+            return false;
+        } else {
+            dto.setAxisXSize(lineLength);
         }
+
         return true;
     }
 
     private static String appendLineWithMissingSymbols(GameDto dto, String lineFromFile, int lineLength) {
-        StringBuilder sb = new StringBuilder(lineFromFile);
-        for (int i = lineLength; i < dto.getAxisXSize(); i++)
-            sb.append(dto.getEMPTY_SPACE_SYMBOL());
-        return sb.toString();
+        return lineFromFile + (""+dto.getEMPTY_SPACE_SYMBOL()).repeat(dto.getAxisXSize()-lineLength);
     }
 
-    private static void processLineFromFile(GameDto dto, String lineFromFile, int y) {
-        for (int x = 0; x < lineFromFile.length(); x++) {
-            dto.setMapArray(x, y, lineFromFile.charAt(x));
-            if (lineFromFile.charAt(x) == dto.getSTART_POSITION_SYMBOL()) {
-                dto.setXStart(x);
-                dto.setYStart(y);
-            }
-        }
+    private static void createArrayFromAList(GameDto dto, List<String> listOfLines) {
+        int y = 0;
+        for (String line : listOfLines){
+            for (int x = 0; x < line.length(); x++){
+                dto.setMapArray(x, y, line.charAt(x));
+                if (line.charAt(x) == dto.getSTART_POSITION_SYMBOL()) {
+                    dto.setXStart(x);
+                    dto.setYStart(y);
+                }
+            };
+            y++;
+        };
     }
 
     private static boolean isMapHeightCorrect(GameDto dto, int y) {
