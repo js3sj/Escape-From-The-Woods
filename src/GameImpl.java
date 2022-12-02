@@ -48,8 +48,8 @@ public class GameImpl {
     }
 
     private ArrayList<Point> getPointsAround(Point point) {
-        int x = point.getX();
-        int y = point.getY();
+        int x = point.x();
+        int y = point.y();
 
         Point pointUp = new Point(x, y-1);
         Point pointRight = new Point(x+1, y);
@@ -87,12 +87,12 @@ public class GameImpl {
     }
 
     private boolean isPointOnTheMapEmpty(Point point){
-        return mapArray[point.getY()][point.getX()] == EMPTY_SPACE_SYMBOL;
+        return mapArray[point.y()][point.x()] == EMPTY_SPACE_SYMBOL;
     }
 
     private boolean isPointOnThePerimeter(Point point) {
-        int x = point.getX();
-        int y = point.getY();
+        int x = point.x();
+        int y = point.y();
 
         return ((((x > 0) && (x < axisXSize - 1)) && ((y == 0) || (y == axisYSize - 1)))
                 || (((y > 0) && (y < axisYSize - 1)) && (((x == 0)) || (((x == axisXSize - 1))))));
